@@ -65,11 +65,21 @@
             var result = `
                 <h3>Heart Rate Zones for Age ${age}</h3>
                 <p><strong>Max Heart Rate:</strong> ${maxHeartRate} bpm</p>
-                <p><strong>Zone 1 (Warm-Up):</strong> ${zone1Min} - ${zone1Max} bpm</p>
-                <p><strong>Zone 2 (Fat Burning):</strong> ${zone2Min} - ${zone2Max} bpm</p>
-                <p><strong>Zone 3 (Aerobic):</strong> ${zone3Min} - ${zone3Max} bpm</p>
-                <p><strong>Zone 4 (Anaerobic):</strong> ${zone4Min} - ${zone4Max} bpm</p>
-                <p><strong>Zone 5 (Maximum Effort):</strong> ${zone5Min} - ${zone5Max} bpm</p>
+
+                <p><strong>Zone 1 (Warm-Up):</strong> ${zone1Min} - ${zone1Max} bpm<br>
+                Low-intensity effort, ideal for warm-ups, cool-downs, and improving overall health.</p>
+
+                <p><strong>Zone 2 (Fat Burning):</strong> ${zone2Min} - ${zone2Max} bpm<br>
+                Moderate-intensity, helps to burn fat and improve endurance. Often referred to as the fat-burning zone.</p>
+
+                <p><strong>Zone 3 (Aerobic):</strong> ${zone3Min} - ${zone3Max} bpm<br>
+                High-intensity cardiovascular training that improves aerobic capacity and stamina. Ideal for improving heart and lung strength.</p>
+
+                <p><strong>Zone 4 (Anaerobic):</strong> ${zone4Min} - ${zone4Max} bpm<br>
+                Very high-intensity training that increases endurance and speed. This zone builds lactate tolerance, enabling short bursts of intense effort.</p>
+
+                <p><strong>Zone 5 (Maximum Effort):</strong> ${zone5Min} - ${zone5Max} bpm<br>
+                Maximum intensity, used for short, all-out bursts of effort. This zone is typically used for sprinting and is the most demanding on your body.</p>
             `;
 
             document.getElementById('output').innerHTML = result;
