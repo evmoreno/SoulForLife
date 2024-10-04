@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Rate Zone Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        label {
+            font-weight: bold;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #eaf1f1;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Heart Rate Zone Calculator</h1>
+        <label for="age">Enter your age:</label>
+        <input type="number" id="age" min="1" max="120" placeholder="e.g., 60">
+        <button onclick="calculateZones()">Calculate</button>
+
+        <div id="output" class="result"></div>
+    </div>
+
+    <script>
+        function calculateZones() {
+            var age = document.getElementById('age').value;
+            if (age == "" || age < 1) {
+                document.getElementById('output').innerHTML = "Please enter a valid age.";
+                return;
+            }
+
+            var maxHeartRate = 220 - age;
+            var zone1Min = Math.round(maxHeartRate * 0.50);
+            var zone1Max = Math.round(maxHeartRate * 0.60);
+            var zone2Min = Math.round(maxHeartRate * 0.60);
+            var zone2Max = Math.round(maxHeartRate * 0.70);
+            var zone3Min = Math.round(maxHeartRate * 0.70);
+            var zone3Max = Math.round(maxHeartRate * 0.80);
+            var zone4Min = Math.round(maxHeartRate * 0.80);
+            var zone4Max = Math.round(maxHeartRate * 0.90);
+            var zone5Min = Math.round(maxHeartRate * 0.90);
+            var zone5Max = Math.round(maxHeartRate);
+
+            var result = `
+                <h3>Heart Rate Zones for Age ${age}</h3>
+                <p><strong>Max Heart Rate:</strong> ${maxHeartRate} bpm</p>
+                <p><strong>Zone 1 (Warm-Up):</strong> ${zone1Min} - ${zone1Max} bpm</p>
+                <p><strong>Zone 2 (Fat Burning):</strong> ${zone2Min} - ${zone2Max} bpm</p>
+                <p><strong>Zone 3 (Aerobic):</strong> ${zone3Min} - ${zone3Max} bpm</p>
+                <p><strong>Zone 4 (Anaerobic):</strong> ${zone4Min} - ${zone4Max} bpm</p>
+                <p><strong>Zone 5 (Maximum Effort):</strong> ${zone5Min} - ${zone5Max} bpm</p>
+            `;
+
+            document.getElementById('output').innerHTML = result;
+        }
+    </script>
+
+</body>
+</html>
